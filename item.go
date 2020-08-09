@@ -26,8 +26,16 @@ func (fi *Item) PublishedAt() (time.Time, error) {
 	return time.Parse(time.RFC3339, fi.RawDatePublished)
 }
 
+func (fi *Item) SetPublishedAt(t time.Time) {
+	fi.RawDatePublished = t.Format(time.RFC3339)
+}
+
 func (fi *Item) ModifiedAt() (time.Time, error) {
 	return time.Parse(time.RFC3339, fi.RawDateModified)
+}
+
+func (fi *Item) SetModifiedAt(t time.Time) {
+	fi.RawDateModified = t.Format(time.RFC3339)
 }
 
 func (fi *Item) IsValid() bool {
