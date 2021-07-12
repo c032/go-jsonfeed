@@ -1,4 +1,4 @@
-# jsonfeed
+# go-jsonfeed
 
 Go implementation of <https://jsonfeed.org/>.
 

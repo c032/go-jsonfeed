@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"git.wark.io/lib/go/jsonfeed"
+	"github.com/c032/go-jsonfeed"
 )
 
 const (

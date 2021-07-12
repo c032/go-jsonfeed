@@ -1,3 +1,3 @@
-module git.wark.io/lib/go/jsonfeed
+module github.com/c032/go-jsonfeed
 
-go 1.13
+go 1.16
