@@ -2,6 +2,7 @@ package jsonfeed_test
 
 import (
 	"os"
+	"strings"
 	"testing"
 
 	"github.com/c032/go-jsonfeed"
@@ -78,5 +79,29 @@ func TestParse(t *testing.T) {
 		}
 	} else {
 		t.Errorf("len(feed.Items) = %d; want %d", len(feed.Items), len(expectedItems))
+	}
+}
+
+func TestParse_Empty(t *testing.T) {
+	r := strings.NewReader("")
+
+	feed, err := jsonfeed.Parse(r)
+	if err == nil {
+		t.Error("jsonfeed.Parse returned a nil error; want non-nil")
+	}
+	if got, want := feed, (*jsonfeed.Feed)(nil); got != want {
+		t.Errorf("jsonfeed.Parse = %#v; want %#v", got, want)
+	}
+}
+
+func TestParse_InvalidJSON(t *testing.T) {
+	r := strings.NewReader("{")
+
+	feed, err := jsonfeed.Parse(r)
+	if err == nil {
+		t.Error("jsonfeed.Parse returned a nil error; want non-nil")
+	}
+	if got, want := feed, (*jsonfeed.Feed)(nil); got != want {
+		t.Errorf("jsonfeed.Parse = %#v; want %#v", got, want)
 	}
 }
