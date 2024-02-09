@@ -4,4 +4,4 @@ Go implementation of <https://jsonfeed.org/>.
 
 ## License
 
-Apache 2.0
+MPL 2.0.
